@@ -6,7 +6,7 @@ const SEGMENTATION_API = import.meta.env.VITE_SEGMENTATION_API_URL || 'http://lo
 
 export const analyzeImage = async (file: File): Promise<GradingResponse> => {
   const formData = new FormData();
-  formData.append('image', file);
+  formData.append('file', file);
 
   const response = await axios.post<GradingResponse>(`${GRADING_API}/predict/aptos`, formData, {
     headers: {
