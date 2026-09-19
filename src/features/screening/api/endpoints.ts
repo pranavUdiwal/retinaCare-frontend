@@ -8,7 +8,7 @@ export const analyzeImage = async (file: File): Promise<GradingResponse> => {
   const formData = new FormData();
   formData.append('image', file);
 
-  const response = await axios.post<GradingResponse>(`${GRADING_API}/api/predict`, formData, {
+  const response = await axios.post<GradingResponse>(`${GRADING_API}/predict/aptos`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -21,7 +21,7 @@ export const segmentVessels = async (file: File): Promise<string> => {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await axios.post(`${SEGMENTATION_API}/predict`, formData, {
+  const response = await axios.post(`${SEGMENTATION_API}/predict/vessel`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
